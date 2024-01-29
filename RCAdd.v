@@ -8,16 +8,16 @@ reg [31:0] temp;
 integer i;
 always@(A or B or select)
 	begin
-	/*if (select == 1) begin
-		temp = ~B + 1'b1; //2's compliment
+	if (select == 1) begin
+		temp = ~B + 1'b1; //subtraction
 	end else begin
 		temp = B;
-	end*/
+	end
 	
 		localCarry = 33'd0;
 		for(i=0; i<32; i = i +1)
-		begin
-			C[i] = A[i]^temp[i]^localCarry[i];
+		begin //addition?
+			C[i] = A[i]^temp[i]^localCarry[i]; 
 			localCarry[i+1] = (A[i]&temp[i])|(localCarry[i]&(A[i]|temp[i]));
 		end
 	end
