@@ -1,4 +1,4 @@
-module pc_32_bit #(parameter qInitial = 32'b0)(
+module pc #(parameter qInitial = 32'b0)(
 	input wire clock, 
 	input wire clear,
 	input wire IncPC,
