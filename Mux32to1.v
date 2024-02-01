@@ -13,31 +13,31 @@ module mux_32_1 (
 
 always@(*)begin
 		case(read)
-		0	:	out = busMuxIn_0R;
-		1	:	out = busMuxIn_1R;
-		2	:	out = busMuxIn_2R;
-		3	:	out = busMuxIn_3R;
-		4	:	out = busMuxIn_4R;
-		5	:	out = busMuxIn_5R;
-		6	:	out = busMuxIn_6R;
-		7	:	out = busMuxIn_7R;
-		8	:	out = busMuxIn_8R;
-		9	:	out = busMuxIn_9R;
-		10	:	out = busMuxIn_10R;
-		11	:	out = busMuxIn_11R;
-		12	:	out = busMuxIn_12R;
-		13	:	out = busMuxIn_13R;
-		14	:	out = busMuxIn_14R;
-		15	:	out = busMuxIn_15R;
-		16	:	out = busMuxIn_HI;
-		17	:	out = busMuxIn_LO;
-		18	:	out = busMuxIn_ZHI;
-		19	:	out = busMuxIn_ZLO;
-		20	:	out = busMuxIn_PC;
-		21	:	out = busMuxIn_MDR;
-		22	:	out = busMuxIn_InPort;
-		23	:	out = busMuxIn_C;
-		default	: out = 32'bx;
+		0	:	out <= busMuxIn_0R [31:0];
+		1	:	out <= busMuxIn_1R[31:0];
+		2	:	out <= busMuxIn_2R[31:0];
+		3	:	out <= busMuxIn_3R[31:0];
+		4	:	out <= busMuxIn_4R[31:0];
+		5	:	out <= busMuxIn_5R[31:0];
+		6	:	out <= busMuxIn_6R[31:0];
+		7	:	out <= busMuxIn_7R[31:0];
+		8	:	out <= busMuxIn_8R[31:0];
+		9	:	out <= busMuxIn_9R[31:0];
+		10	:	out <= busMuxIn_10R[31:0];
+		11	:	out <= busMuxIn_11R[31:0];
+		12	:	out <= busMuxIn_12R[31:0];
+		13	:	out <= busMuxIn_13R[31:0];
+		14	:	out <= busMuxIn_14R[31:0];
+		15	:	out <= busMuxIn_15R[31:0];
+		16	:	out <= busMuxIn_HI[31:0];
+		17	:	out <= busMuxIn_LO[31:0];
+		18	:	out <= busMuxIn_ZHI[31:0];
+		19	:	out <= busMuxIn_ZLO[31:0];
+		20	:	out <= busMuxIn_PC[31:0];
+		21	:	out <= busMuxIn_MDR[31:0];
+		22	:	out <= busMuxIn_InPort[31:0];
+		23	:	out <= busMuxIn_C[31:0];
+		default	: out <= 32'b0;
 		endcase
 	end
 endmodule

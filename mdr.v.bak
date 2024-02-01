@@ -8,6 +8,6 @@ module mdr(
 
 	mux_MDR muxMdr(BusMuxOut, MDataIn, read, d);
 
-	register MDRreg(clock, clear, MDRin, d, out);
+	reg_32_bit MDRreg(clock, clear, MDRin, d, out);
 
 endmodule
