@@ -35,46 +35,46 @@ always @(*)
 				C[31:0] <= sub_out[31:0];
 				C[63:32] <= 32'd0;
 				end
-			5'b00101: begin // mul
-				C[63:0] <= mul_out[63:0];
-				end
-			5'b00110: begin // div
-				C[63:0] <= div_out[63:0];
-				end
-			5'b00111: begin // neg
-				C[31:0] <= neg_out[31:0];
-				C[63:32] <= 32'd0;
-				end
-			5'b01000: begin //not
-				C[31:0] <= not_out[31:0];
-				C[63:32] <= 32'd0;
-				end
-			5'b01001: begin //rol 
-				C[31:0] <= rol_out[31:0];
-				C[63:32] <= 32'd0;
-				end
-			5'b01010: begin //ror 
-				C[31:0] <= ror_out[31:0];
-				C[63:32] <= 32'd0;
-				end
-			5'b01011: begin //or
-				C[31:0] <= or_out[31:0];
-				C[63:32] <= 32'd0;
-				end
-			5'b01111: begin //and 
+			5'b00101: begin //and
 				C[31:0] <= and_out[31:0];
 				C[63:32] <= 32'd0;
 				end
-			5'b10000:  begin //shl 
-				C[31:0] <= shl_out[31:0];
+			5'b00110: begin //or
+				C[31:0] <= or_out[31:0];
 				C[63:32] <= 32'd0;
 				end
-			5'b10001: begin //shr
+			5'b00111: begin //shr
 				C[31:0] <= shr_out[31:0];
 				C[63:32] <= 32'd0;
 				end
-			5'b10010: begin //shra
+			5'b01000: begin //shra
 				C[31:0] <= shra_out[31:0];
+				C[63:32] <= 32'd0;
+				end
+			5'b01001: begin //shl
+				C[31:0] <= shl_out[31:0];
+				C[63:32] <= 32'd0;
+				end
+			5'b01010: begin //ror
+				C[31:0] <= ror_out[31:0];
+				C[63:32] <= 32'd0;
+				end
+			5'b01011: begin //rol
+				C[31:0] <= rol_out[31:0];
+				C[63:32] <= 32'd0;
+				end
+			5'b01111: begin // mul
+				C[63:0] <= mul_out[63:0];
+				end
+			5'b10000: begin // div
+				C[63:0] <= div_out[63:0];
+				end
+			5'b10001: begin // neg
+				C[31:0] <= neg_out[31:0];
+				C[63:32] <= 32'd0;
+				end
+			5'b10010: begin //not
+				C[31:0] <= not_out[31:0];
 				C[63:32] <= 32'd0;
 				end
 			default: begin
