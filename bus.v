@@ -41,14 +41,15 @@ mux_32_1 mux (busMuxIn_0R, busMuxIn_1R, busMuxIn_2R, busMuxIn_3R, busMuxIn_4R,
 		busMuxIn_ZLO, busMuxIn_PC, busMuxIn_MDR, busMuxIn_InPort, busMuxIn_C, 
 		encodeOut, Muxout);
 		
-	
+
 encoder encoder_32bit(R0out, R1out, R2out, R3out, 
 	R4out, R5out, R6out, R7out, R8out, 
 	R9out, R10out, R11out, R12out, R13out, 
 	R14out, R15out, HIout, LOout, ZHIout, 
 	ZLOout, PCout, MDRout, Inportout, Cout, encodeOut);
 	
-register register0 (clock, clear, R0in, Muxout, busMuxIn_0R);
+	
+	register register0 (clock, clear, R0in, Muxout, busMuxIn_0R);
 	register register1 (clock, clear, R1in, Muxout, busMuxIn_1R);
 	register register2 (clock, clear, R2in, Muxout, busMuxIn_2R);
 	register register3 (clock, clear, R3in, Muxout, busMuxIn_3R);
@@ -72,5 +73,7 @@ register register0 (clock, clear, R0in, Muxout, busMuxIn_0R);
 	register registerMDR (clock, clear, MDRin, MDR_mux_out, busMuxIn_MDR);
 	register registerInPort (clock, clear, OutPortin, Muxout, busMuxIn_InPort);
 	register registerC (clock, clear, Cin, Muxout, busMuxIn_C);
+	
+	//alu alu32bit(IncPC, read, operation, z_data_out);
 
 endmodule

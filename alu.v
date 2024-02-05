@@ -85,9 +85,9 @@ always @(*)
 		endcase
 end
 
-adder adds(Y, B, add_out, 1'b0);
-adder subs(Y, B, sub_out, 1'b1);
-And_32_bit ands(Y, B, and_out);
+adder adds(Y, B, add_out /*,1'b0*/);
+/*adder subs(Y, B, sub_out/*, 1'b1*/);
+/*And_32_bit ands(Y, B, and_out);
 Or_32_bit ors(Y, B, or_out);
 shiftRight shr(Y, B, shr_out);
 shiftLeft shl(Y, B, shl_out);
@@ -99,5 +99,5 @@ divider div(Y, B, div_out);
 Negate neg(B, neg_out);
 Not_32_bit nots(B, not_out);
 //...
-
+*/
 endmodule
