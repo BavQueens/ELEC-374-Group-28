@@ -3,6 +3,7 @@ module subtract_tb;
 	reg MARin, Zlowin, PCin, MDRin, IRin, Yin;
 	reg IncPC, read, R0in, R4in, R5in;
 	reg clock;
+	reg clear;
 	reg [4:0] operation;
 	reg [31:0] Mdatain;
 	reg R0out, R1out, R2out, R3out, 
@@ -53,7 +54,7 @@ always@(Present_state)
 	begin
 		case (Present_state) // assert the required signals in each clock cycle
 			Default: begin
-
+				#5 clear <= 1;
 				PCout <= 0; ZLOout <= 0; MDRout <= 0; // initialize the signals
 				R4out <= 0; R5out <= 0; MARin <= 0; Zlowin <= 0;
 				PCin <=0; MDRin <= 0; IRin <= 0; Yin <= 0;
@@ -64,6 +65,7 @@ always@(Present_state)
 					R9out, R10out, R11out, R12out, R13out, 
 					R14out, R15out, HIout, LOout, ZHIout, 
 					ZLOout, PCout, MDRout, Inportout, Cout} <= 24'b000000000000000000000000;
+			#15 clear<=0;
 			end
 			Reg_load1a: begin
 				Mdatain <= 32'h00000012;
