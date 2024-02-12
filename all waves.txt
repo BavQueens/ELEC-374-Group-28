@@ -3,3 +3,9 @@ add wave -position insertpoint sim:/adder_tb/BUS/register4/*
 add wave -position insertpoint sim:/adder_tb/BUS/register5/*
 add wave -position insertpoint sim:/adder_tb/BUS/registerMDR/*
 add wave -position insertpoint sim:/adder_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/subtract_tb/BUS/register0/*
+add wave -position insertpoint sim:/subtract_tb/BUS/register4/*
+add wave -position insertpoint sim:/subtract_tb/BUS/register5/*
+add wave -position insertpoint sim:/subtract_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/subtract_tb/BUS/registery/*
