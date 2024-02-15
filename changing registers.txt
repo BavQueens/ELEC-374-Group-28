@@ -1,0 +1,49 @@
+Changing registers 
+
+AND: 
+R1 
+R2 R3
+
+Or: 
+R1
+R2 r3
+
+Add
+R1
+R2 R3
+
+Sub 
+R1
+R2 R3
+
+Mul 
+R4 R5
+
+DIV 
+R4 R5
+
+SHR 
+R1
+R2 R3 
+
+SHRA
+R1 
+R2 R3 
+
+SHL
+R1
+R2 R3
+
+ROR
+R1 
+R2 R3
+
+ROL 
+R1 
+R2 R3 
+
+NOT 
+R6 R7
+
+NEG
+R6 R7
