@@ -1,16 +1,10 @@
 `timescale 1ns/10ps
-module negate_tb;
-	reg MARin, Zlowin, IRin, Yin;
-	reg IncPC, read;
+module not_tb;
+	reg MARin, Zlowin, PCin, MDRin, IRin, Yin;
+	reg IncPC, read, R0in, R1in;
 	reg clock;
-	reg clear;
 	reg [4:0] operation;
 	reg [31:0] Mdatain;
-	reg R0in, R1in, R2in, R3in, 
-					R4in, R5in, R6in, R7in, R8in, 
-					R9in, R10in, R11in, R12in, R13in, 
-					R14in, R15in, HIin, LOin, ZHIin, 
-					ZLOin, PCin, MDRin, Inportin, Cin;
 	reg R0out, R1out, R2out, R3out, 
 		R4out, R5out, R6out, R7out, R8out, 
 		R9out, R10out, R11out, R12out, R13out, 
@@ -22,69 +16,14 @@ module negate_tb;
 					T1 = 4'b1000, T2 = 4'b1001, T3 = 4'b1010, T4 = 4'b1011, T5 = 4'b1100;
 	reg [3:0] Present_state = Default;
 
-bus BUS(.clock(clock),
-			.clear(clear),
-			.R0in(R0in),
-			.R1in(R1in),
-			.R2in(R2in),
-			.R3in(R3in),
-			.R4in(R4in),
-			.R5in(R5in),
-			.R6in(R6in),
-			.R7in(R7in),
-			.R8in(R8in),
-			.R9in(R9in),
-			.R10in(R10in),
-			.R11in(R11in),
-			.R12in(R12in),
-			.R13in(R13in),
-			.R14in(R14in),
-			.R15in(R15in),
-			.HIin(HIin),
-			.LOin(LOin),
-			.Zhighin(Zhighin),
-			.Zlowin(Zlowin),
-			.PCin(PCin),
-			.MDRin(MDRin),
-			.OutPortin(OutPortin),
-			.Cin(Cin),
-			.MARin(MARin),
-			.IRin(IRin),
-			.Yin(Yin),
-			.Zin(Zin),
-
-			.R0out(R0out),
-			.R1out(R1out),
-			.R2out(R2out),
-			.R3out(R3out),
-			.R4out(R4out),
-			.R5out(R5out),
-			.R6out(R6out),
-			.R7out(R7out),
-			.R8out(R8out),
-			.R9out(R9out),
-			.R10out(R10out),
-			.R11out(R11out),
-			.R12out(R12out),
-			.R13out(R13out),
-			.R14out(R14out),
-			.R15out(R15out),
-			.HIout(HIout),
-			.LOout(LOout),
-			.ZHIout(ZHIout), 
-			.ZLOout(ZLOout),
-			.PCout(PCout),
-			.MDRout(MDRout),
-			.Inportout(Inportout),
-			.Cout(Cout), 
-	
-			.IncPC(IncPc),
-			.read(read),
-			.operation(operation),
-			.Mdatain(Mdatain)
-			);
-			
-
+bus BUS(clock, clear, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in,
+	R10in, R11in, R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin,
+	PCin, MDRin, OutPortin, Cin, MARin, IRin, Yin, R0out, R1out, R2out, R3out, 
+	R4out, R5out, R6out, R7out, R8out, 
+	R9out, R10out, R11out, R12out, R13out, 
+	R14out, R15out, HIout, LOout, ZHIout, 
+	ZLOout, PCout, MDRout, Inportout, Cout, IncPC, read, Mdatain,
+	operation);
 
 initial
 	begin
@@ -114,23 +53,17 @@ always@(Present_state)
 	begin
 		case (Present_state) // assert the required signals in each clock cycle
 			Default: begin
-			#5 clear <= 1; //add 5s delay
+
 				PCout <= 0; ZLOout <= 0; MDRout <= 0; // initialize the signals
-				R4out <= 0; R5out <= 0; MARin <= 0; Zlowin <= 0;
+				R0out <= 0; R1out <= 0; MARin <= 0; Zlowin <= 0;
 				PCin <=0; MDRin <= 0; IRin <= 0; Yin <= 0;
 				IncPC <=0; read <= 0; operation <= 5'b00000;
-				R0in <=0; R4in<=0; R5in<=0; Mdatain <= 32'h00000000;
-				{R0in, R1in, R2in, R3in, 
-					R4in, R5in, R6in, R7in, R8in, 
-					R9in, R10in, R11in, R12in, R13in, 
-					R14in, R15in, HIin, LOin, ZHIin, 
-					ZLOin, PCin, MDRin, Inportin, Cin} <= 24'b000000000000000000000000;
+				R0in <=0; R1in<=0; Mdatain <= 32'h00000000;
 				{R0out, R1out, R2out, R3out, 
 					R4out, R5out, R6out, R7out, R8out, 
 					R9out, R10out, R11out, R12out, R13out, 
 					R14out, R15out, HIout, LOout, ZHIout, 
 					ZLOout, PCout, MDRout, Inportout, Cout} <= 24'b000000000000000000000000;
-				#5 clear<=0;  // after 5s set to 0
 			end
 			Reg_load1a: begin
 				Mdatain <= 32'h00000012;
@@ -164,7 +97,7 @@ always@(Present_state)
 				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 			end
 			T1: begin
-				Mdatain <= 32'h88080000; // OPCODE 1000 1000 0000 1000 ..
+				Mdatain <= 32'h90080000; // OPCODE 1001 0000 0000 1000 ..
 				#5 ZLOout <= 1; PCin <=1; read<=1; MDRin<=1;  
 				#15 ZLOout <= 0; PCin <=0; read<=0; MDRin<=0;
 			end
@@ -177,7 +110,7 @@ always@(Present_state)
 //				# 15 R1out <= 0; Yin <= 0; // R2 into Y
 //			end
 			T3: begin
-				# 5 R1out <= 1; operation <= 5'b10001; Zlowin <= 1; //"NEG" //R1 to muxout, direct to ALU
+				# 5 R1out <= 1; operation <= 5'b10010; Zlowin <= 1; //"NOT" //R1 to muxout, direct to ALU
 				# 15 R1out <= 0; Zlowin <= 0;
 			end
 			T4: begin

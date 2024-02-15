@@ -1,12 +1,11 @@
 `timescale 1ns/10ps
-module neg(A, B);
+module Not_32_bit(A, B);
 input [31:0] A;
 output reg [31:0] B;
 
 always@(A)
 	begin
-	
-	B = ( ~A ) + 1'b1; // neg operation
+	B = !A; //not operation
 	
 	end
 endmodule

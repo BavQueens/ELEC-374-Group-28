@@ -5,7 +5,7 @@ output reg [31:0] C;
 always@(A or B)
 	begin
 
-	C = A && B; //and operation
+	C = A & B; //and operation
 	
 
 	end

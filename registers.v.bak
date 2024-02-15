@@ -8,7 +8,7 @@ module register #(parameter qInitial = 32'b0)(
 		
 	
 	initial q = qInitial;
-	always@(posedge clock) 
+	always@(clock) 
 	begin
 		if (clear) begin
 			q[31:0] = 32'b0;

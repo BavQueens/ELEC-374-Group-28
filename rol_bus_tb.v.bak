@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
-module shra_bus_tb;
-reg MARin, Zlowin, IRin, Yin;
+module rol_bus_tb;
+	reg MARin, Zlowin, IRin, Yin;
 	reg IncPC, read;
 	reg clock;
 	reg clear;
@@ -83,7 +83,7 @@ bus BUS(.clock(clock),
 			.operation(operation),
 			.Mdatain(Mdatain)
 			);
-			
+	
 
 initial
 	begin
@@ -98,9 +98,9 @@ always@(posedge clock)
 			Reg_load1a : Present_state = Reg_load1b;
 			Reg_load1b : Present_state = Reg_load2a;
 			Reg_load2a : Present_state = Reg_load2b;
-			Reg_load2b : Present_state = Reg_load3a;
-			Reg_load3a : Present_state = Reg_load3b;
-			Reg_load3b : Present_state = T0;
+			Reg_load2b : Present_state = T0;
+//			Reg_load3a : Present_state = Reg_load3b;
+//			Reg_load3b : Present_state = T0;
 			T0 : Present_state = T1;
 			T1 : Present_state = T2;
 			T2 : Present_state = T3;
@@ -132,38 +132,38 @@ always@(Present_state)
 				#5 clear<=0;  // after 5s set to 0
 			end
 			Reg_load1a: begin
-				Mdatain <= 32'h80000012;
+				Mdatain <= 32'h00000012;
 				#5 read <= 1; MDRin <= 1;
 				#15 read <= 0; MDRin <= 0;
 			end
 			Reg_load1b: begin
-				#5 MDRout <= 1; R3in <= 1;
-				#15 MDRout <= 0; R3in <= 0; // initialize R3 with the value $12 (18)
+				#5 MDRout <= 1; R6in <= 1;
+				#15 MDRout <= 0; R6in <= 0; // initialize R2 with the value $12 (18)
 			end
 			Reg_load2a: begin
-				Mdatain <= 32'h00000001;
+				Mdatain <= 32'h00000014;
 				#5 read <=1; MDRin <=1;
 				#15 read <= 0; MDRin <= 0;
 			end
 			 Reg_load2b: begin
-				#5 MDRout <= 1; R5in <= 1;
-				#15 MDRout <= 0; R5in <= 0; // initialize R5 with the value $14 ()
-			end
-			Reg_load3a: begin
-				Mdatain <= 32'h00000018;
-				#5 read <= 1; MDRin <= 1;
-				#15 read <= 0; MDRin <= 0;
-			end
-			 Reg_load3b: begin
 				#5 MDRout <= 1; R4in <= 1;
-				#15 MDRout <= 0; R4in <= 0; // initialize R4 with the value $18 (24)
+				#15 MDRout <= 0; R4in <= 0; // initialize R3 with the value $14 (20)
 			end
+//			Reg_load3a: begin
+//				Mdatain <= 32'h00000018;
+//				#5 read <= 1; MDRin <= 1;
+//				#15 read <= 0; MDRin <= 0;
+//			end
+//			 Reg_load3b: begin
+//				#5 MDRout <= 1; R1in <= 1;
+//				#15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18 (24)
+//			end
 			T0: begin // see if you need to de-assert these signals
 				#5 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1;
 				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 			end
 			T1: begin
-				Mdatain <= 32'h409A8000; // OPCODE 0100 0000 1001 1010 1000
+				Mdatain <= 32'h5b320000; // OPCODE 0101 1011 0011 0010 0000 ..
 				#5 ZLOout <= 1; PCin <=1; read<=1; MDRin<=1;  
 				#15 ZLOout <= 0; PCin <=0; read<=0; MDRin<=0;
 			end
@@ -172,16 +172,16 @@ always@(Present_state)
 				#15 MDRout <= 0; IRin <=0;
 			end
 			T3: begin
-				# 5 R3out <= 1; Yin <= 1;
-				# 15 R3out <= 0; Yin <= 0; // R3 into Y
+				# 5 R6out <= 1; Yin <= 1;
+				# 15 R6out <= 0; Yin <= 0; // R6 into Y
 			end
 			T4: begin
-				# 5 R5out <= 1; operation <= 5'b01000; Zlowin <= 1; //"SHRA" //R5 to muxout, direct to ALU
-				# 15 R5out <= 0; Zlowin <= 0;
+				# 5 R4out <= 1; operation <= 5'b01011; Zlowin <= 1; //"AND" //R4 to muxout, direct to ALU
+				# 15 R4out <= 0; Zlowin <= 0;
 			end
 			T5: begin
-				# 5 ZLOout <= 1; R4in <= 1; // result from alu (ZLOout) to R4
-				# 15 ZLOout <= 0; R4in <= 0; 
+				# 5 ZLOout <= 1; R6in <= 1; // result from alu (ZLOout) to R6!
+				# 15 ZLOout <= 0; R6in <= 0; 
 			end
 		endcase
 	end
