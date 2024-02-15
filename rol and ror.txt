@@ -1,0 +1,28 @@
+`timescale 1ns/10ps
+module shiftRight(A, B, C);
+input [31:0] A, B;
+output reg [31:0] C;
+input wire select;
+integer i; 
+
+always@(A or B)
+	begin
+	for (int i =0; i<32; i = i+1) begin
+		C =(A << i) | (A >>(32-i));
+	end // rotate left?
+endmodule
+
+
+`timescale 1ns/10ps
+module shiftRight(A, B, C);
+input [31:0] A, B;
+output reg [31:0] C;
+input wire select;
+integer i; 
+
+always@(A or B)
+	begin
+	for (int i =0; i<32; i = i+1) begin
+			C =(A >> i) | (A <<(32-i));
+	end //rotate right
+endmodule
