@@ -29,3 +29,9 @@ add wave -position insertpoint sim:/negate_tb/BUS/register1/*
 add wave -position insertpoint sim:/negate_tb/BUS/register2/*
 add wave -position insertpoint sim:/negate_tb/BUS/registery/*
 add wave -position insertpoint sim:/negate_tb/BUS/registerMDR/*
+
+add wave -position insertpoint sim:/and_tb/BUS/register1/*
+add wave -position insertpoint sim:/and_tb/BUS/register2/*
+add wave -position insertpoint sim:/and_tb/BUS/register3/*
+add wave -position insertpoint sim:/and_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/and_tb/BUS/registery/*
