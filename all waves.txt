@@ -30,8 +30,50 @@ add wave -position insertpoint sim:/negate_tb/BUS/register2/*
 add wave -position insertpoint sim:/negate_tb/BUS/registery/*
 add wave -position insertpoint sim:/negate_tb/BUS/registerMDR/*
 
+add wave -position insertpoint sim:/not_tb/BUS/register0/*
+add wave -position insertpoint sim:/not_tb/BUS/register1/*
+add wave -position insertpoint sim:/not_tb/BUS/register2/*
+add wave -position insertpoint sim:/not_tb/BUS/registery/*
+add wave -position insertpoint sim:/not_tb/BUS/registerMDR/*
+
 add wave -position insertpoint sim:/and_tb/BUS/register1/*
 add wave -position insertpoint sim:/and_tb/BUS/register2/*
 add wave -position insertpoint sim:/and_tb/BUS/register3/*
 add wave -position insertpoint sim:/and_tb/BUS/registerMDR/*
 add wave -position insertpoint sim:/and_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/or_tb/BUS/register1/*
+add wave -position insertpoint sim:/or_tb/BUS/register2/*
+add wave -position insertpoint sim:/or_tb/BUS/register3/*
+add wave -position insertpoint sim:/or_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/or_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/shr_bus_tb/BUS/register3/*
+add wave -position insertpoint sim:/shr_bus_tb/BUS/register4/*
+add wave -position insertpoint sim:/shr_bus_tb/BUS/register5/*
+add wave -position insertpoint sim:/shr_bus_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/shr_bus_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/shra_bus_tb/BUS/register3/*
+add wave -position insertpoint sim:/shra_bus_tb/BUS/register4/*
+add wave -position insertpoint sim:/shra_bus_tb/BUS/register5/*
+add wave -position insertpoint sim:/shra_bus_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/shra_bus_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/rol_bus_tb/BUS/register2/*
+add wave -position insertpoint sim:/rol_bus_tb/BUS/register3/*
+add wave -position insertpoint sim:/rol_bus_tb/BUS/register1/*
+add wave -position insertpoint sim:/rol_bus_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/rol_bus_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/ror_bus_tb/BUS/register2/*
+add wave -position insertpoint sim:/ror_bus_tb/BUS/register3/*
+add wave -position insertpoint sim:/ror_bus_tb/BUS/register1/*
+add wave -position insertpoint sim:/ror_bus_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/ror_bus_tb/BUS/registery/*
+
+add wave -position insertpoint sim:/shl_bus_tb/BUS/register3/*
+add wave -position insertpoint sim:/shl_bus_tb/BUS/register4/*
+add wave -position insertpoint sim:/shl_bus_tb/BUS/register5/*
+add wave -position insertpoint sim:/shl_bus_tb/BUS/registerMDR/*
+add wave -position insertpoint sim:/shl_bus_tb/BUS/registery/*
