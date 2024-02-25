@@ -6,5 +6,6 @@ always@(A or B)
 	begin
 	
 	C = A >>> B; //Lock signed bit, shift the rest.
+		//assign C = A >>> B; remove end 
 	end
 endmodule
