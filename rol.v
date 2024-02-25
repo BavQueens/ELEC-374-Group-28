@@ -40,4 +40,5 @@ always@(A or B)
 		default : C = A;
 		endcase
 	end
+	// try assign C = (A << B[3:0]) | (A >> 32-B[3:0]);
 endmodule
