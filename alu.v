@@ -85,18 +85,20 @@ always @(*)
 		endcase
 end
 
-adder adds(Y, B, add_out /*,1'b0*/);
+adder adds(Y, B, add_out);
 and_op ands(Y, B, and_out);
 not_op nots(B, not_out);
 shiftRight shr(Y, B, shr_out);
 shiftLeft shl(Y, B, shl_out);
 or_op ors(Y, B, or_out);
-shiftRightArithmetic shra(Y, B, shra_out);
+rotateRight ror(Y, B, ror_out);
 rotateLeft rol(Y, B, rol_out);
-//Or ors(Y, B, or_out);
-//subtract_op subs(Y, B, sub_out);
-//multiplier mul(Y, B, mul_out);
-//divider div(Y, B, div_out);
+shiftRightArithmetic shra(Y, B, shra_out);
+Negate neg(B, neg_out);
+Not_32_bit nots(B, not_out);
+subtract_op subs(Y, B, sub_out);
+multiplier mul(Y, B, mul_out);
+divider div(Y, B, div_out);
 /*And_32_bit ands(Y, B, and_out);
 Or_32_bit ors(Y, B, or_out);
 shiftRight shr(Y, B, shr_out);
@@ -104,8 +106,7 @@ shiftLeft shl(Y, B, shl_out);
 shiftRightArithmetic shra(Y, B, shra_out);
 rotateRight ror(Y, B, ror_out);
 rotateLeft rol(Y, B, rol_out);
-Negate neg(B, neg_out);
-Not_32_bit nots(B, not_out);
+
 //...
 */
 endmodule

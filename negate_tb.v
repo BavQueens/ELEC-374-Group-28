@@ -138,8 +138,8 @@ always@(Present_state)
 				#15 read <= 0; MDRin <= 0;
 			end
 			Reg_load1b: begin
-				#5 MDRout <= 1; R1in <= 1;
-				#15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $12 (18)
+				#5 MDRout <= 1; R6in <= 1;
+				#15 MDRout <= 0; R6in <= 0; // initialize R6 with the value $12 (18)
 			end
 			Reg_load2a: begin
 				Mdatain <= 32'h00000014;
@@ -147,8 +147,8 @@ always@(Present_state)
 				#15 read <= 0; MDRin <= 0;
 			end
 			 Reg_load2b: begin
-				#5 MDRout <= 1; R0in <= 1;
-				#15 MDRout <= 0; R0in <= 0; // initialize R0 with the value $14 (20)
+				#5 MDRout <= 1; R7in <= 1;
+				#15 MDRout <= 0; R7in <= 0; // initialize R7 with the value $14 (20)
 			end
 //			Reg_load3a: begin
 //				Mdatain <= 32'h00000018;
@@ -156,8 +156,8 @@ always@(Present_state)
 //				#15 read <= 0; MDRin <= 0;
 //			end
 //			 Reg_load3b: begin
-//				#5 MDRout <= 1; R1in <= 1;
-//				#15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18 (24)
+//				#5 MDRout <= 1; R6in <= 1;
+//				#15 MDRout <= 0; R6in <= 0; // initialize R6 with the value $18 (24)
 //			end
 			T0: begin // see if you need to de-assert these signals
 				#5 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1;
@@ -181,8 +181,8 @@ always@(Present_state)
 				# 15 R1out <= 0; Zlowin <= 0;
 			end
 			T4: begin
-				# 5 ZLOout <= 1; R0in <= 1; // result from alu (ZLOout) to R0
-				# 15 ZLOout <= 0; R0in <= 0; 
+				# 5 ZLOout <= 1; R7in <= 1; // result from alu (ZLOout) to R7
+				# 15 ZLOout <= 0; R7in <= 0; 
 			end
 		endcase
 	end

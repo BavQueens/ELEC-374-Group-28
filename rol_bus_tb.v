@@ -83,7 +83,7 @@ bus BUS(.clock(clock),
 			.operation(operation),
 			.Mdatain(Mdatain)
 			);
-	
+			
 
 initial
 	begin
@@ -137,17 +137,17 @@ always@(Present_state)
 				#15 read <= 0; MDRin <= 0;
 			end
 			Reg_load1b: begin
-				#5 MDRout <= 1; R2in <= 1;
-				#15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $12 (18)
+				#5 MDRout <= 1; R1in <= 1;
+				#15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $12 (18)
 			end
 			Reg_load2a: begin
-				Mdatain <= 32'h00000014;
+				Mdatain <= 32'h00000003;
 				#5 read <=1; MDRin <=1;
 				#15 read <= 0; MDRin <= 0;
 			end
 			 Reg_load2b: begin
-				#5 MDRout <= 1; R3in <= 1;
-				#15 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14 (20) temp 1
+				#5 MDRout <= 1; R2in <= 1;
+				#15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $14 (20)
 			end
 //			Reg_load3a: begin
 //				Mdatain <= 32'h00000018;
@@ -163,7 +163,7 @@ always@(Present_state)
 				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 			end
 			T1: begin
-				Mdatain <= 32'h5b320000; // OPCODE 0101 1011 0011 0010 0000 ..
+				Mdatain <= 32'h5b320000; // OPCODE 0101 0011 0011 0010 0000 ..
 				#5 ZLOout <= 1; PCin <=1; read<=1; MDRin<=1;  
 				#15 ZLOout <= 0; PCin <=0; read<=0; MDRin<=0;
 			end
@@ -176,12 +176,12 @@ always@(Present_state)
 				# 15 R6out <= 0; Yin <= 0; // R6 into Y
 			end
 			T4: begin
-				# 5 R4out <= 1; operation <= 5'b01011; Zlowin <= 1; //"AND" //R4 to muxout, direct to ALU
+				# 5 R4out <= 1; operation <= 5'b01011; Zlowin <= 1; //"ROR" //R4 to muxout, direct to ALU
 				# 15 R4out <= 0; Zlowin <= 0;
 			end
 			T5: begin
-				# 5 ZLOout <= 1; R2in <= 1; // result from alu (ZLOout) to R2!
-				# 15 ZLOout <= 0; R2in <= 0; 
+				# 5 ZLOout <= 1; R1in <= 1; // result from alu (ZLOout) to R6!
+				# 15 ZLOout <= 0; R1in <= 0; 
 			end
 		endcase
 	end

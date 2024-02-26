@@ -138,8 +138,8 @@ always@(Present_state)
 				#15 read <= 0; MDRin <= 0;
 			end
 			Reg_load1b: begin
-				#5 MDRout <= 1; R6in <= 1;
-				#15 MDRout <= 0; R6in <= 0; // initialize R6 with the value $12 (18) *temp 20
+				#5 MDRout <= 1; R4in <= 1;
+				#15 MDRout <= 0; R4in <= 0; // initialize R4 with the value $12 (18) *temp 20
 			end
 			Reg_load2a: begin
 				Mdatain <= 32'h00000004;
@@ -147,8 +147,8 @@ always@(Present_state)
 				#15 read <= 0; MDRin <= 0;
 			end
 			 Reg_load2b: begin
-				#5 MDRout <= 1; R7in <= 1;
-				#15 MDRout <= 0; R7in <= 0; // initialize R7 with the value $14 (20) *temp 4
+				#5 MDRout <= 1; R5in <= 1;
+				#15 MDRout <= 0; R5in <= 0; // initialize R5 with the value $14 (20) *temp 4
 			end
 			Reg_load3a: begin
 				Mdatain <= 32'h00000018;
