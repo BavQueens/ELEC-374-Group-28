@@ -1,49 +1,49 @@
 Changing registers 
 
-AND: 
+AND: DONE
 R1 
 R2 R3
 
-Or: 
+Or: DONE
 R1
 R2 r3
 
-Add
+Add DONE
 R1
 R2 R3
 
-Sub 
+Sub DONE
 R1
 R2 R3
 
-Mul 
+Mul  DONE
 R4 R5
 
-DIV 
+DIV DONE
 R4 R5
 
-SHR 
+SHR DONE
 R1
 R2 R3 
 
-SHRA
+SHRA DONE
 R1 
 R2 R3 
 
-SHL
+SHL DONE
 R1
 R2 R3
 
-ROR
+ROR DONE
 R1 
 R2 R3
 
-ROL 
+ROL DONE
 R1 
 R2 R3 
 
-NOT 
+NOT DONE
 R6 R7
 
-NEG
+NEG DONE
 R6 R7
