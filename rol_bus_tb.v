@@ -147,7 +147,7 @@ always@(Present_state)
 			end
 			 Reg_load2b: begin
 				#5 MDRout <= 1; R2in <= 1;
-				#15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $14 (20)
+				#15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $3 (20)
 			end
 //			Reg_load3a: begin
 //				Mdatain <= 32'h00000018;
@@ -172,15 +172,15 @@ always@(Present_state)
 				#15 MDRout <= 0; IRin <=0;
 			end
 			T3: begin
-				# 5 R6out <= 1; Yin <= 1;
-				# 15 R6out <= 0; Yin <= 0; // R6 into Y
+				# 5 R1out <= 1; Yin <= 1;
+				# 15 R1out <= 0; Yin <= 0; // R6 into Y
 			end
 			T4: begin
-				# 5 R4out <= 1; operation <= 5'b01011; Zlowin <= 1; //"ROR" //R4 to muxout, direct to ALU
-				# 15 R4out <= 0; Zlowin <= 0;
+				# 5 R2out <= 1; operation <= 5'b01011; Zlowin <= 1; //"ROR" //R4 to muxout, direct to ALU
+				# 15 R2out <= 0; Zlowin <= 0;
 			end
 			T5: begin
-				# 5 ZLOout <= 1; R1in <= 1; // result from alu (ZLOout) to R6!
+				# 5 ZLOout <= 1; R1in <= 1; // result from alu (ZLOout) to R1!
 				# 15 ZLOout <= 0; R1in <= 0; 
 			end
 		endcase

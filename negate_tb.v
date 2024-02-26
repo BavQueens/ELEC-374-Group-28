@@ -177,8 +177,8 @@ always@(Present_state)
 //				# 15 R1out <= 0; Yin <= 0; // R2 into Y
 //			end
 			T3: begin
-				# 5 R1out <= 1; operation <= 5'b10001; Zlowin <= 1; //"NEG" //R1 to muxout, direct to ALU
-				# 15 R1out <= 0; Zlowin <= 0;
+				# 5 R6out <= 1; operation <= 5'b10001; Zlowin <= 1; //"NEG" //R1 to muxout, direct to ALU
+				# 15 R6out <= 0; Zlowin <= 0;
 			end
 			T4: begin
 				# 5 ZLOout <= 1; R7in <= 1; // result from alu (ZLOout) to R7

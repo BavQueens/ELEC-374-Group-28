@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-module not_tb;
+module negate_tb;
 	reg MARin, Zlowin, IRin, Yin;
 	reg IncPC, read;
 	reg clock;
@@ -85,6 +85,7 @@ bus BUS(.clock(clock),
 			);
 			
 
+
 initial
 	begin
 		clock = 0;
@@ -163,7 +164,7 @@ always@(Present_state)
 				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 			end
 			T1: begin
-				Mdatain <= 32'h90080000; // OPCODE 1001 0000 0000 1000 ..
+				Mdatain <= 32'h88080000; // OPCODE 1000 1000 0000 1000 ..
 				#5 ZLOout <= 1; PCin <=1; read<=1; MDRin<=1;  
 				#15 ZLOout <= 0; PCin <=0; read<=0; MDRin<=0;
 			end
@@ -176,11 +177,11 @@ always@(Present_state)
 //				# 15 R1out <= 0; Yin <= 0; // R2 into Y
 //			end
 			T3: begin
-				# 5 R6out <= 1; operation <= 5'b10010; Zlowin <= 1; //"NOT" //R1 to muxout, direct to ALU
-				# 15 R6out <= 0; Zlowin <= 0;
+				# 5 R1out <= 1; operation <= 5'b10001; Zlowin <= 1; //"NEG" //R1 to muxout, direct to ALU
+				# 15 R1out <= 0; Zlowin <= 0;
 			end
 			T4: begin
-				# 5 ZLOout <= 1; R7in <= 1; // result from alu (ZLOout) to R0
+				# 5 ZLOout <= 1; R7in <= 1; // result from alu (ZLOout) to R7
 				# 15 ZLOout <= 0; R7in <= 0; 
 			end
 		endcase

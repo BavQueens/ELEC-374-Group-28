@@ -172,12 +172,12 @@ always@(Present_state)
 				#15 MDRout <= 0; IRin <=0;
 			end
 			T3: begin
-				# 5 R6out <= 1; Yin <= 1;
-				# 15 R6out <= 0; Yin <= 0; // R6 into Y
+				# 5 R1out <= 1; Yin <= 1;
+				# 15 R1out <= 0; Yin <= 0; // R6 into Y
 			end
 			T4: begin
-				# 5 R4out <= 1; operation <= 5'b01010; Zlowin <= 1; //"ROR" //R4 to muxout, direct to ALU
-				# 15 R4out <= 0; Zlowin <= 0;
+				# 5 R2out <= 1; operation <= 5'b01010; Zlowin <= 1; //"ROR" //R4 to muxout, direct to ALU
+				# 15 R2out <= 0; Zlowin <= 0;
 			end
 			T5: begin
 				# 5 ZLOout <= 1; R1in <= 1; // result from alu (ZLOout) to R1!

@@ -78,11 +78,51 @@ set_global_assignment -name EDA_TEST_BENCH_NAME rol_bus_tb -section_id eda_simul
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id rol_bus_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id rol_bus_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME rol_bus_tb -section_id rol_bus_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE ror_bus_tb.v -section_id ror_bus_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE rol_bus_tb.v -section_id rol_bus_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME shra_bus_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id shra_bus_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id shra_bus_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME shra_bus_tb -section_id shra_bus_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE shra_bus_tb.v -section_id shra_bus_tb
+set_global_assignment -name VERILOG_FILE adder_tb.v
+set_global_assignment -name VERILOG_FILE And.v
+set_global_assignment -name VERILOG_FILE and_tb.v
+set_global_assignment -name VERILOG_FILE Or.v
+set_global_assignment -name VERILOG_FILE or_tb.v
+set_global_assignment -name VERILOG_FILE subtract_op.v
+set_global_assignment -name VERILOG_FILE subtract_tb.v
+set_global_assignment -name VERILOG_FILE Mul.v
+set_global_assignment -name VERILOG_FILE multiply_tb.v
+set_global_assignment -name VERILOG_FILE Div.v
+set_global_assignment -name VERILOG_FILE divide_tb.v
+set_global_assignment -name VERILOG_FILE shr_bus_tb.v
+set_global_assignment -name VERILOG_FILE shl_bus_tb.v
+set_global_assignment -name VERILOG_FILE Not_op.v
+set_global_assignment -name VERILOG_FILE not_tb.v
+set_global_assignment -name VERILOG_FILE negate.v
+set_global_assignment -name VERILOG_FILE negate_tb.v
+set_global_assignment -name VERILOG_FILE Adder.v
+set_global_assignment -name VERILOG_FILE shiftRight.v
+set_global_assignment -name VERILOG_FILE shiftLeft.v
+set_global_assignment -name EDA_TEST_BENCH_NAME multiply_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id multiply_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id multiply_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME multiply_tb -section_id multiply_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME divide_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id divide_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id divide_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME divide_tb -section_id divide_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME adder_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id adder_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id adder_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME adder_tb -section_id adder_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME subtract_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id subtract_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id subtract_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME subtract_tb -section_id subtract_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE ror_bus_tb.v -section_id ror_bus_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE rol_bus_tb.v -section_id rol_bus_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE shra_bus_tb.v -section_id shra_bus_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE multiply_tb.v -section_id multiply_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE divide_tb.v -section_id divide_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE adder_tb.v -section_id adder_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE subtract_tb.v -section_id subtract_tb
