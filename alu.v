@@ -97,7 +97,7 @@ shiftRightArithmetic shra(Y, B, shra_out);
 neg Negate1(B, neg_out);
 subtract_op subs(Y, B, sub_out);
 multiplier mul(Y, B, mul_out);
-divider div(Y, B, div_out);
+divider divide(Y, B, div_out);
 /*And_32_bit ands(Y, B, and_out);
 Or_32_bit ors(Y, B, or_out);
 shiftRight shr(Y, B, shr_out);

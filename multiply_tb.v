@@ -133,7 +133,7 @@ always@(Present_state)
 				#5 clear<=0;  // after 5s set to 0
 			end
 			Reg_load1a: begin
-				Mdatain <= 32'h00000012;
+				Mdatain <= 32'hfffffffc;
 				#5 read <= 1; MDRin <= 1;
 				#15 read <= 0; MDRin <= 0;
 			end
@@ -142,7 +142,7 @@ always@(Present_state)
 				#15 MDRout <= 0; R4in <= 0; // initialize R4 with the value $12 (18)
 			end
 			Reg_load2a: begin
-				Mdatain <= 32'h00000014;
+				Mdatain <= 32'hfffffffc;
 				#5 read <=1; MDRin <=1;
 				#15 read <= 0; MDRin <= 0;
 			end
