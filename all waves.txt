@@ -10,15 +10,15 @@ add wave -position insertpoint sim:/subtract_tb/BUS/register5/*
 add wave -position insertpoint sim:/subtract_tb/BUS/registerMDR/*
 add wave -position insertpoint sim:/subtract_tb/BUS/registery/*
 
-add wave -position insertpoint sim:/multiply_tb/BUS/register6/*
-add wave -position insertpoint sim:/multiply_tb/BUS/register7/*
+add wave -position insertpoint sim:/multiply_tb/BUS/register4/*
+add wave -position insertpoint sim:/multiply_tb/BUS/register5/*
 add wave -position insertpoint sim:/multiply_tb/BUS/registerHI/*
 add wave -position insertpoint sim:/multiply_tb/BUS/registerLO/*
 add wave -position insertpoint sim:/multiply_tb/BUS/registerZHI/*
 add wave -position insertpoint sim:/multiply_tb/BUS/registerZLO/*
 
-add wave -position insertpoint sim:/divide_tb/BUS/register6/*
-add wave -position insertpoint sim:/divide_tb/BUS/register7/*
+add wave -position insertpoint sim:/divide_tb/BUS/register4/*
+add wave -position insertpoint sim:/divide_tb/BUS/register5/*
 add wave -position insertpoint sim:/divide_tb/BUS/registerHI/*
 add wave -position insertpoint sim:/divide_tb/BUS/registerLO/*
 add wave -position insertpoint sim:/divide_tb/BUS/registerZHI/*
