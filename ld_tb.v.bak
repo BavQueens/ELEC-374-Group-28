@@ -13,9 +13,38 @@ module ld_tb;
 					T4 = 4'b0101, T5 = 4'b0110, T6 = 4'b0111, T7 = 4'b1000;
 	reg [3:0] Present_state = Default;
 
-bus BUS(clock, clear, Gra, Grb, Grc, Rin, Rout, BAout, CON_in, HIin, LOin, Zhighin, Zlowin,
-	PCin, MDRin, OutPortin, MARin, IRin, Yin, HIout, LOout, ZHIout, 
-	ZLOout, PCout, MDRout, Inportout, Cout, IncPC, write, read, operation, CON_out);
+bus BUS(.clock(clock), 
+.clear(clear), 
+.Gra(Gra), 
+.Grb(Grb), 
+.Grc(Grc), 
+.Rin(Rin), 
+.Rout(Rout), 
+.BAout(BAout), 
+.CON_in(CON_in), 
+.HIin(HIin), 
+.LOin(LOin), 
+.Zhighin(Zhighin), 
+.Zlowin(Zlowin),
+	.PCin(PCin), 
+	.MDRin(MDRin), 
+	.OutPortin(OutPortin), 
+	.MARin(MARin), 
+	.IRin(IRin), 
+	.Yin(Yin), 
+	.HIout(HIout), 
+	.LOout(LOout), 
+	.ZHIout(ZHIout), 
+	.ZLOout(ZLOout), 
+	.PCout(PCout), 
+	.MDRout(MDRout), 
+	.Inportout(Inportout), 
+	.Cout(Cout), 
+	.IncPC(IncPC), 
+	.write(write), 
+	.read(read), 
+	.operation(operation), 
+	.CON_out(CON_out));
 
 initial
 	begin

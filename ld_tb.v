@@ -1,12 +1,13 @@
 `timescale 1ns/10ps
 module ld_tb;
 	reg Gra, Grb, Grc, Rin, Rout, BAout, CON_in;
-	reg MARin, Zlowin, Zhighin, PCin, MDRin, OutPortin, IRin, Yin ;
+	reg MARin, Zlowin, Zhighin, PCin, MDRin, OutPortin, IRin, Yin, Cin, Zin;
 	reg IncPC, write, read, LOin, HIin;
 	reg clock, clear;
 	reg [4:0] operation;
 	reg [31:0] Mdatain;
 	reg HIout, LOout, ZHIout, ZLOout, PCout, MDRout, Inportout, Cout;
+	reg [31:0] InPortData, OutPortData;
 	wire CON_out;
 
 	parameter	Default = 4'b0000, T0 = 4'b0001, T1 = 4'b0010, T2 = 4'b0011, T3 = 4'b0100,
@@ -44,7 +45,12 @@ bus BUS(.clock(clock),
 	.write(write), 
 	.read(read), 
 	.operation(operation), 
-	.CON_out(CON_out));
+	.CON_out(CON_out),
+	.Cin(Cin),
+	.Zin(Zin), 
+	.InPortData(InPortData),
+	.OutPortData(OutPortData)
+	);
 
 initial
 	begin

@@ -10,9 +10,9 @@ module select_encode (
 	
 	
 	
-	output [4:0] opcode, 
+	output wire opcode, 
 	
-	output [31:0] cSign
+	output wire cSign
 
 
 );
