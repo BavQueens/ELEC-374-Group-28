@@ -10,7 +10,7 @@ module ld_tb;
 	reg [31:0] InPortData, OutPortData;
 	wire CON_out;
 
-	parameter	Default = 4'b0000, T0 = 4'b0001, T1 = 4'b0010, T2 = 4'b0011, T3 = 4'b0100,
+	parameter	Default = 4'b0000, T0 = 4'b0001, T1 = 4'b0010, T1b = 4'b1001, T2 = 4'b0011, T3 = 4'b0100,
 					T4 = 4'b0101, T5 = 4'b0110, T6 = 4'b0111, T7 = 4'b1000;
 	reg [3:0] Present_state = Default;
 
@@ -63,7 +63,8 @@ always@(posedge clock)
 		case (Present_state)
 			Default : Present_state = T0;
 			T0 : Present_state = T1;
-			T1 : Present_state = T2;
+			T1 : Present_state = T1b;
+			T1b : Present_state = T2;
 			T2 : Present_state = T3;
 			T3 : Present_state = T4;
 			T4 : Present_state = T5;
@@ -93,8 +94,12 @@ always@(Present_state)
 			end
 			T1: begin
 				// Mdatain <= 32'h; 00000 0001 0010 0
-				#5 ZLOout <= 1; PCin <=1; read<=1; MDRin<=1;  
-				#15 ZLOout <= 0; PCin <=0; read<=0; MDRin<=0;
+				#5 ZLOout <= 1; PCin <=1; read<=1; 
+				#15 ZLOout <= 0; PCin <=0;  
+			end
+			T1b: begin 
+				#5 MDRin<=1;
+				#15 read<=0; MDRin<=0;
 			end
 			T2: begin
 				#5 MDRout <= 1; IRin <=1;

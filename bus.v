@@ -107,9 +107,9 @@ encoder encoder_32bit(R0out, R1out, R2out, R3out,
 	
 	register registerIR (clock, clear, IRin, MuxOut, ir_out);
 	
-	//Ram this_ram(busMuxIn_MDR, ram_address[8:0], write, read, clock, Mdatain);
+	Ram this_ram(busMuxIn_MDR, ram_address[8:0], write, read, clock, Mdatain);
 	
-	ram5 this_ram(ram_address[8:0],clock, busMuxIn_MDR, write, Mdatain);
+	//ram5 this_ram(ram_address[8:0],clock, busMuxIn_MDR, write, Mdatain);
 	
 	select_encode this_select_encode(ir_out, Gra, Grb, Grc, Rin, Rout, BAout, 
 	R15in, R14in, R13in, R12in, R11in, R10in, R9in, 

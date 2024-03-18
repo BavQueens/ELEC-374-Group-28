@@ -109,13 +109,13 @@ encoder encoder_32bit(R0out, R1out, R2out, R3out,
 	
 	//Ram this_ram(busMuxIn_MDR, ram_address[8:0], write, read, clock, Mdatain);
 	
-	ram3 this_ram(ram_address[8:0],clock, busMuxIn_MDR, write, Mdatain);
+	ram5 this_ram(ram_address[8:0],clock, busMuxIn_MDR, write, Mdatain);
 	
 	select_encode this_select_encode(ir_out, Gra, Grb, Grc, Rin, Rout, BAout, 
-	{R15in, R14in, R13in, R12in, R11in, R10in, R9in, 
-	R8in, R7in, R6in, R5in, R4in, R3in, R2in, R1in, R0in}, 
-	{R15out, R14out, R13out, R12out, R11out, R10out, R9out, R8out, R7out, 
-	R6out, R5out, R4out, R3out, R2out, R1out, R0out}
+	R15in, R14in, R13in, R12in, R11in, R10in, R9in, 
+	R8in, R7in, R6in, R5in, R4in, R3in, R2in, R1in, R0in, 
+	R15out, R14out, R13out, R12out, R11out, R10out, R9out, R8out, R7out, 
+	R6out, R5out, R4out, R3out, R2out, R1out, R0out, opcode, cSign
 		);
 		
 	CON_FF this_con_ff(MuxOut, ir_out[20:19], CON_in, CON_out);
