@@ -12,8 +12,23 @@ module Ram
 	
 	initial begin : INIT
 		//$readmemh("InitR.mif", ram);
-		ram[32'h0] = 32'b00000001000000000000000010010101; // follow cpu specifications doc 
-		ram[32'h95] = 32'hFFFF1234;
+		//ld
+		//ram[32'h0] = 32'b00000001000000000000000010010101;	// follow cpu specifications doc 
+		//ram[32'h95] = 32'h00000005;
+		
+		//ram[32'h0] = 32'b00000000000000000000000010010101;
+		//ram[32'h95] = ram[32'h95] + 32'h00000038;
+		
+		//ldi
+		ram[32'h0] = 32'h00001001000000000000000010010101;
+		ram[32'h95] = 32'h00000005;
+		
+		//andi 
+		
+		
+		//st
+		//ram[32'h0] = 32'b00010000100000000000000010000111;
+		//ram[32'h87] = 32'h12341234;	
 	end
 	
 	always @ (posedge clock)

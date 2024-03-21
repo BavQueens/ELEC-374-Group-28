@@ -80,7 +80,7 @@ always@(Present_state)
 				
 				Gra <=0; Grb <=0; Grc <=0; Rin <=0; Rout <=0; BAout <=0; CON_in <= 0;
 				MARin <=0; Zlowin <=0; Zhighin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <= 0;
-				IncPC <=0; write <=0; read <=0; LOin <=0; HIin <=0;
+				IncPC <=0; write <=0; read <=0; LOin <=0; HIin <=0; clear <= 0;
 	
 				operation <= 0;
 				Mdatain <= 0;
@@ -89,8 +89,8 @@ always@(Present_state)
 					ZLOout, PCout, MDRout, Inportout, Cout} <= 8'b00000000;
 			end
 			T0: begin // see if you need to de-assert these signals
-				#5 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1;
-				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
+				#5 PCout <= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+				#15 PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
 			end
 			T1: begin
 				// Mdatain <= 32'h; 00000 0001 0010 0
@@ -110,8 +110,8 @@ always@(Present_state)
 				# 15 Grb <=0; BAout <=0; Yin <= 0;
 			end
 			T4: begin
-				# 5 Cout <= 1; operation <= 5'b00011; Zlowin <= 1;
-				# 15 Cout <= 0; Zlowin <= 0;
+				# 5 Cout <= 1; operation <= 5'b00011; Zin <= 1;
+				# 15 Cout <= 0; Zin <= 0;
 			end
 			T5: begin
 				# 5 ZLOout <= 1; MARin <=1;

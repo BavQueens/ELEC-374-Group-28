@@ -12,7 +12,9 @@ module select_encode (
 	
 	output wire opcode, 
 	
-	output wire cSign
+	output wire cSign,
+	
+	output wire cSignEx
 
 
 );
@@ -27,7 +29,6 @@ module select_encode (
 	assign Ra = ir_out[26:23];
 	assign Rb = ir_out[22:19];
 	assign Rc = ir_out[18:15];
-	
 	
 	assign decoder_input = Gra ? Ra:
 								  Grb ? Rb:

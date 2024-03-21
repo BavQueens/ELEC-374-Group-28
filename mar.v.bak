@@ -1,5 +1,5 @@
 module mar(
-	input wire clock,clear, MARin, read,
+	input wire clear, clock, MARin, read,
 	output wire [31:0] out
 );
 
