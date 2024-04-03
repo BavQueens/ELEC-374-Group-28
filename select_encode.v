@@ -1,4 +1,4 @@
-module select_encode (
+/*module select_encode (
 	input [31:0] ir_out,
 	input Gra, Grb, Grc,
 	input Rin, Rout, BAout,
@@ -49,6 +49,44 @@ module select_encode (
 		R10out, R11out, R12out, R13out,R14out, R15out} =(Rout|BAout) ? decoder_output: 16'b0;
 	
 		
+endmodule */
+module Sel_Enc(
+	output wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in,
+	output wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
+	output reg[31:0] C_sign_extended,
+	input Gra, Grb, Grc, Rin, Rout, BAout,
+	input [31:0] IR
+);
+	reg[3:0] regSel;
+	wire[15:0] regSelDec;
+
+	decoder_4_16 Decoder(regSelDec, regSel);
+	
+	always @(*)
+	begin
+		if(Gra)
+			regSel = IR[26:23];
+		else if(Grb)
+			if(IR[31:27] == 5'b10100)
+				regSel = 4'b1111;
+			else
+				regSel = IR[22:19];
+		else if(Grc)
+			regSel = IR[18:15];
+		
+		C_sign_extended = IR[18] ? {13'b1111111111111, IR[18:0]} : {13'b0000000000000, IR[18:0]};
+	end
+
+	// Map decoder output to individual register input and output signals
+	genvar i;
+	generate
+		for (i = 0; i < 16; i = i + 1) begin
+			assign {R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in}[i] = Rin & regSelDec[i];
+			assign {R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out}[i] = (Rout | BAout) & regSelDec[i];
+		end
+	endgenerate
+
 endmodule
+
 	
 	
